@@ -1,13 +1,14 @@
 from tornado.web import Application
 import tornado.ioloop
 import tornado.httpserver
-from app import app
+from .house import house
+
 
 class App(Application):
     def __init__(self):
         handlers = [
-            (r'/xing/helloworld', app.HelloWorld),
-            (r'/xing/suibi', app.SuiBi),
+            (r'/xing/helloworld', house.HelloWorld),
+            (r'/xing/suibi', house.SuiBi),
         ]
         super(App, self).__init__(handlers=handlers)
 
