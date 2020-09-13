@@ -8,7 +8,7 @@ class App(Application):
     def __init__(self):
         handlers = [
             (r'/xing/helloworld', house.HelloWorld),
-            (r'/xing/suibi', house.SuiBi),
+            (r'/xing/helloworld1', house.HelloWorld1),
         ]
         super(App, self).__init__(handlers=handlers)
 
