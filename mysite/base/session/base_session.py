@@ -11,7 +11,7 @@ class BaseScheduleSession(metaclass=ABCMeta):
 
 
 class BaseProcessSession(metaclass=ABCMeta):
-    def __init__(self, service):
+    def __init__(self):
         pass
 
     @abstractmethod
