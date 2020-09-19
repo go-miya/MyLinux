@@ -19,16 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c3aa373-db2d-4721-a145-eef94be82e51" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/MyLinux.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyLinux.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="6c3aa373-db2d-4721-a145-eef94be82e51" name="Default Changelist" comment="xing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/app/house/house_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/app/house/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/app/house/house_session.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/app/house/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/base/handler/base_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/base/handler/base_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/base/session/base_session.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/base/session/base_session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/base/session/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/base/session/schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/service/house/house.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/service/house/house.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/service/http_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/service/http_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/support/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +63,56 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysite/proto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.game_mgt_build_table">
+    <configuration name="base" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MyLinux" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mysite/base" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mysite/base/base.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="game_mgt_build_table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../demo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../demo/game_mgt_build_table.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,6 +143,28 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mysite" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mysite/proto/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MyLinux" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/support" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -114,33 +179,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="workpool" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MyLinux" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mysite/base" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mysite/base/workpool.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.workpool" />
+        <item itemvalue="Python.game_mgt_build_table" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +198,8 @@
       <option name="presentableId" value="Default" />
       <updated>1599962078795</updated>
       <workItem from="1599962083619" duration="158000" />
-      <workItem from="1600072431488" duration="14190000" />
+      <workItem from="1600072431488" duration="35609000" />
+      <workItem from="1600356994776" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="xing">
       <created>1599962119639</created>
@@ -194,42 +238,51 @@
     <option name="LAST_COMMIT_MESSAGE" value="xing" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600154318812">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600252527573">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1600154318812" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1600158586264">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.819@0.23.1440.819" timestamp="1600252527573" />
+    <state width="1398" height="262" key="GridCell.Tab.0.bottom" timestamp="1600356925326">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600158586264" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1600158586263">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600228906181" />
+    <state width="1398" height="262" key="GridCell.Tab.0.bottom/0.23.1440.819@0.23.1440.819" timestamp="1600356925326" />
+    <state width="1398" height="262" key="GridCell.Tab.0.center" timestamp="1600356925325">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600158586263" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1600158586262">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1600228906151" />
+    <state width="1398" height="262" key="GridCell.Tab.0.center/0.23.1440.819@0.23.1440.819" timestamp="1600356925325" />
+    <state width="1398" height="262" key="GridCell.Tab.0.left" timestamp="1600356925324">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600158586262" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1600158586263">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1600228906140" />
+    <state width="1398" height="262" key="GridCell.Tab.0.left/0.23.1440.819@0.23.1440.819" timestamp="1600356925324" />
+    <state width="1398" height="262" key="GridCell.Tab.0.right" timestamp="1600356925325">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600158586263" />
-    <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1600153177732">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1600228906155" />
+    <state width="1398" height="262" key="GridCell.Tab.0.right/0.23.1440.819@0.23.1440.819" timestamp="1600356925325" />
+    <state width="1398" height="262" key="GridCell.Tab.1.bottom" timestamp="1600356925328">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1600153177732" />
-    <state width="1398" height="304" key="GridCell.Tab.1.center" timestamp="1600153177730">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="262" key="GridCell.Tab.1.bottom/0.23.1440.819@0.23.1440.819" timestamp="1600356925328" />
+    <state width="1398" height="262" key="GridCell.Tab.1.center" timestamp="1600356925327">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1600153177730" />
-    <state width="1398" height="304" key="GridCell.Tab.1.left" timestamp="1600153177728">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="262" key="GridCell.Tab.1.center/0.23.1440.819@0.23.1440.819" timestamp="1600356925327" />
+    <state width="1398" height="262" key="GridCell.Tab.1.left" timestamp="1600356925326">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1600153177728" />
-    <state width="1398" height="304" key="GridCell.Tab.1.right" timestamp="1600153177731">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="262" key="GridCell.Tab.1.left/0.23.1440.819@0.23.1440.819" timestamp="1600356925326" />
+    <state width="1398" height="262" key="GridCell.Tab.1.right" timestamp="1600356925327">
+      <screen x="0" y="23" width="1440" height="819" />
     </state>
     <state width="1398" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1600153177731" />
+    <state width="1398" height="262" key="GridCell.Tab.1.right/0.23.1440.819@0.23.1440.819" timestamp="1600356925327" />
     <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1599962158206">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -240,7 +293,10 @@
     <state x="508" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1600072436034" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MyLinux$test.coverage" NAME="test Coverage Results" MODIFIED="1600142462424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/support" />
+    <SUITE FILE_PATH="coverage/MyLinux$test.coverage" NAME="test Coverage Results" MODIFIED="1600187526150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/support" />
+    <SUITE FILE_PATH="coverage/MyLinux$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1600253762240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite" />
+    <SUITE FILE_PATH="coverage/MyLinux$base_ioloop.coverage" NAME="base_ioloop Coverage Results" MODIFIED="1600238238629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite/base" />
+    <SUITE FILE_PATH="coverage/MyLinux$game_mgt_build_table.coverage" NAME="game_mgt_build_table Coverage Results" MODIFIED="1600356913794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../demo" />
     <SUITE FILE_PATH="coverage/MyLinux$workpool.coverage" NAME="workpool Coverage Results" MODIFIED="1600149546893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite/base" />
     <SUITE FILE_PATH="coverage/MyLinux$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1600158586246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../demo" />
   </component>
