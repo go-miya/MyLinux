@@ -19,16 +19,40 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6c3aa373-db2d-4721-a145-eef94be82e51" name="Default Changelist" comment="xing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/service/http_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/service/http_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/support/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/test.py" afterDir="false" />
+=======
+<<<<<<< HEAD
+    <list default="true" id="dc01afd7-f0c8-4206-ad4c-f75baf6f8c15" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="6c3aa373-db2d-4721-a145-eef94be82e51" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/MyLinux.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyLinux.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/app/house/house_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/app/house/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/app/house/house_session.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/app/house/session.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/base/handler/base_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/base/handler/base_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/base/session/base_session.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/base/session/base_session.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/base/session/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/base/session/schedule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/service/house/house.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/service/house/house.py" afterDir="false" />
+>>>>>>> b26851c205dbf717d77fc17f88ea0c7c72d0122f
+>>>>>>> 16e3c40dec092a0ddc6767d13fab91033aac7d59
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hR6NQ0V4I2OIp8KB3Qq8D6FNV8" />
+=======
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -40,6 +64,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hR7VzyxIAu3ZZT7I9PrwzVgP13" />
+>>>>>>> b26851c205dbf717d77fc17f88ea0c7c72d0122f
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,6 +73,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+=======
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -187,11 +217,30 @@
       </list>
     </recent_temporary>
   </component>
+>>>>>>> b26851c205dbf717d77fc17f88ea0c7c72d0122f
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="dc01afd7-f0c8-4206-ad4c-f75baf6f8c15" name="Default Changelist" comment="" />
+      <created>1599961516513</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599961516513</updated>
+    </task>
+    <task id="LOCAL-00001" summary="xing">
+      <created>1599961721506</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599961721506</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+=======
       <changelist id="6c3aa373-db2d-4721-a145-eef94be82e51" name="Default Changelist" comment="" />
       <created>1599962078795</created>
       <option name="number" value="Default" />
@@ -221,6 +270,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+>>>>>>> b26851c205dbf717d77fc17f88ea0c7c72d0122f
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -231,15 +281,33 @@
         </entry>
       </map>
     </option>
+<<<<<<< HEAD
+=======
     <option name="oldMeFiltersMigrated" value="true" />
+>>>>>>> b26851c205dbf717d77fc17f88ea0c7c72d0122f
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="xing" />
     <option name="LAST_COMMIT_MESSAGE" value="xing" />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
     <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600252527573">
       <screen x="0" y="23" width="1440" height="819" />
+=======
+<<<<<<< HEAD
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1599961741375">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599961741375" />
+    <state x="563" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599962173886">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="563" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1599962173886" />
+=======
+    <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600154318812">
+      <screen x="0" y="0" width="1440" height="900" />
+>>>>>>> 16e3c40dec092a0ddc6767d13fab91033aac7d59
     </state>
     <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1600154318812" />
     <state x="434" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.819@0.23.1440.819" timestamp="1600252527573" />
@@ -299,5 +367,6 @@
     <SUITE FILE_PATH="coverage/MyLinux$game_mgt_build_table.coverage" NAME="game_mgt_build_table Coverage Results" MODIFIED="1600356913794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../demo" />
     <SUITE FILE_PATH="coverage/MyLinux$workpool.coverage" NAME="workpool Coverage Results" MODIFIED="1600149546893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite/base" />
     <SUITE FILE_PATH="coverage/MyLinux$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1600158586246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../demo" />
+>>>>>>> b26851c205dbf717d77fc17f88ea0c7c72d0122f
   </component>
 </project>
