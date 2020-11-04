@@ -10,7 +10,7 @@ class TimeOutError(Exception):
 def timeOut(interval: int, callback: callable):
     def decorator(func):
         def handler(signum, frame):
-            raise TimeOutError("Run func timeout")
+            raise TimeOutError("Run func:%s timeout" % func.__name__)
 
         def wrapper(*args, **kwargs):
             try:
@@ -20,13 +20,13 @@ def timeOut(interval: int, callback: callable):
                 signal.alarm(0)
                 return res
             except TimeOutError as e:
-                callback(e, func.__name__)
+                callback(e)
         return wrapper
     return decorator
 
 
-def timeOutCallback(e: TimeOutError, name):
-    print(e.msg, name)
+def timeOutCallback(e: TimeOutError):
+    print(e.msg)
 
 
 @timeOut(2, timeOutCallback)
