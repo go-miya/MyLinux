@@ -20,13 +20,13 @@ def timeOut(interval: int, callback: callable):
                 signal.alarm(0)
                 return res
             except TimeOutError as e:
-                callback(e)
+                callback(e, func.__name__)
         return wrapper
     return decorator
 
 
-def timeOutCallback(e: TimeOutError):
-    print(e.msg)
+def timeOutCallback(e: TimeOutError, name):
+    print(e.msg, name)
 
 
 @timeOut(2, timeOutCallback)
