@@ -7,7 +7,11 @@ class TimeOutError(Exception):
         self.msg = msg
 
 
-def timeOut(interval: int, callback: callable):
+def timeOutCallback(error):
+	print(error.msg)
+
+
+def timeOut(interval: int):
     def decorator(func):
         def handler(signum, frame):
             raise TimeOutError("Run func:%s timeout" % func.__name__)
@@ -20,21 +24,6 @@ def timeOut(interval: int, callback: callable):
                 signal.alarm(0)
                 return res
             except TimeOutError as e:
-                callback(e)
+                timeOutCallback(e)
         return wrapper
     return decorator
-
-
-def timeOutCallback(e: TimeOutError):
-    print(e.msg)
-
-
-@timeOut(2, timeOutCallback)
-def task1():
-    print("task1 start")
-    time.sleep(3)
-    print("task1 finished")
-
-
-if __name__ == "__main__":
-    task1()
