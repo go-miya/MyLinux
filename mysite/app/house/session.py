@@ -6,7 +6,9 @@ class HouseSession(BaseProcessSession):
     def __init__(self):
         super(HouseSession, self).__init__()
 
-    def call_request(self, pkg):
+   async def call_request(self, pkg):
         print(os.getpid())
-        time.sleep(3)
+        for i in range(5):
+            print(i)
+           await gen.sleep(1)
         return "HelloWorld %s" % random.random()
