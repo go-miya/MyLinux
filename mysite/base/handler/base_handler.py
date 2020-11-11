@@ -27,6 +27,6 @@ class BasicHandler(RequestHandler):
         self.write(ret)
 
     def err_return(self, code: int, err_msg: str):
-        logging.debug(f"err code is: {code}", f"err msg is: {err_msg}")
+        logging.debug("err code is: %s" % code , "err msg is: %s" % err_msg)
         self.response_return(code, err_msg)
 

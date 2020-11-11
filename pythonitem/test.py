@@ -6,10 +6,10 @@ from basefunc import timeout
 from redisfunc import redislock
 
 @redislock.redis_lock
-@timeout.timeOut(2)
+@timeout.time_out(2)
 def task1():
     print("task1 start")
-    time.sleep(3)
+    time.sleep(2)
     print("task1 finished")
 
 

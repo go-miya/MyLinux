@@ -13,7 +13,8 @@ class HelloWorld(BasicHandler):
         try:
             res = self.service_call(module_name="house", pkg=pkg)
             self.response_return(*response_code.HTTP_OK, res)
-        except:
+        except Exception as e:
+            print(e)
             self.err_return(*response_code.SERVER_ERROR)
 
 

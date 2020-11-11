@@ -11,7 +11,7 @@ def timeOutCallback(error):
 	print(error.msg)
 
 
-def timeOut(interval: int):
+def time_out(interval: int):
     def decorator(func):
         def handler(signum, frame):
             raise TimeOutError("Run func:%s timeout" % func.__name__)
