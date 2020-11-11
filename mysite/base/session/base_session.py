@@ -17,3 +17,11 @@ class BaseProcessSession(metaclass=ABCMeta):
     @abstractmethod
     def call_request(self, pkg):
         pass
+
+    @abstractmethod
+    def write_to_middle_part(self, message):
+        pass
+
+    @abstractmethod
+    def get_from_middle_part(self, message):
+        pass

@@ -44,12 +44,14 @@ def stop_handler(signum, frame):
     for pid in pids.keys():
         os.kill(pid, signal.SIGTERM)
 
+
 def trigger_source_stat_handler(signum, frame):
     logging.info("Trigger source stat.")
     for pid in pids.keys():
         logging.info('trigger pid %s' % pid)
         os.kill(pid, signal.SIGUSR1)
 
-if __name__ == "__main__":
-    main()
 
+if __name__ == "__main__":
+    # main()
+    http_service.start_http(9999)

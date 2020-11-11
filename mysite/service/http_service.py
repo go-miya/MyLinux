@@ -2,7 +2,7 @@ from tornado.web import Application
 import tornado.ioloop
 import tornado.httpserver
 from .house import house
-#from base import base
+# from base import base
 
 
 class App(Application):
@@ -15,7 +15,7 @@ class App(Application):
 
 
 def start_http(port):
-    #base.install()
+    # base.install()
     io_loop = tornado.ioloop.IOLoop.instance()
     application = App()
     http_server = tornado.httpserver.HTTPServer(application)
