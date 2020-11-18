@@ -1,4 +1,4 @@
-from session import HouseSession
+from app.house.session import HouseSession
 
 
 if __name__ == "__main__":
