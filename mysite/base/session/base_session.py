@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+from base.redisfunc.rediscon import RedisPool
 
 
 class BaseScheduleSession(metaclass=ABCMeta):
@@ -12,7 +13,7 @@ class BaseScheduleSession(metaclass=ABCMeta):
 
 class BaseProcessSession(metaclass=ABCMeta):
     def __init__(self):
-        pass
+        self.redis_conn = RedisPool().conn
 
     @abstractmethod
     def call_request(self, pkg):
