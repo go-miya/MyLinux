@@ -28,3 +28,11 @@ def timeout(interval: int):
                 raise TimeOutError("timeout")
         return wrapper
     return decorator
+
+
+@timeout(2)
+def func():
+    time.sleep(2)
+    print("This func is executed")
+
+func()
