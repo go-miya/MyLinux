@@ -53,5 +53,5 @@ def trigger_source_stat_handler(signum, frame):
 
 
 if __name__ == "__main__":
-    # main()
-    http_service.start_http(9999)
+    main()
+   # http_service.start_http(9999)
