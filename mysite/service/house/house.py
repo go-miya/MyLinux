@@ -5,13 +5,13 @@ from base import response_code
 class HelloWorld(BasicHandler):
 
     def pkg(self):
-        pkg = {}
+        pkg = {"action": "helloworld"}
         return pkg
 
-    def get(self):
+    async def get(self):
         pkg = self.pkg()
         try:
-            res = self.service_call(module_name="house", pkg=pkg)
+            res = await self.service_call(module_name="house", pkg=pkg)
             self.response_return(*response_code.HTTP_OK, res)
         except Exception as e:
             print(e)

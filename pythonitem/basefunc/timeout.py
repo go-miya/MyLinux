@@ -8,7 +8,7 @@ class TimeOutError(Exception):
 
 
 def timeOutCallback(error):
-	print(error.msg)
+    print(error.msg)
 
 
 def timeout(interval: int):

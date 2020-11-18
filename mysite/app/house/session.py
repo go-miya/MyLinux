@@ -4,6 +4,7 @@ import os
 import random
 import uuid
 import json
+import importlib
 
 
 class HouseSession(BaseProcessSession):
@@ -17,6 +18,11 @@ class HouseSession(BaseProcessSession):
         self.write_to_middle_part(pkg)
         return self.get_from_middle_part(pkg["id"])
         # return "HelloWorld %s" % random.random()
+
+    # imported_module_name = "app.%s.session" % module_name
+    # module = importlib.import_module(imported_module_name)
+    # obj = getattr(module, module_name.capitalize() + "Session")
+    # return obj().call_request(pkg)
 
     def write_to_middle_part(self, pkg):
         print("add task to queue")
