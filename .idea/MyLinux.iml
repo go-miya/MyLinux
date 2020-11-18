@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/mysite" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/mysite/service" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pythonitem/redisfunc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mysite/app/house" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (py38)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

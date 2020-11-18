@@ -3,6 +3,7 @@ from ..redisfunc.rediscon import RedisPool
 import typing
 import uuid
 import asyncio
+import json
 
 
 class ScheduleSession(BaseScheduleSession):
@@ -17,10 +18,10 @@ class ScheduleSession(BaseScheduleSession):
 
     async def service_call(self, module_name: str, pkg: typing.Dict):
         pkg["module_name"] = module_name
-        pkg["id"] = str(uuid.uuid4())
+        pkg["key"] = str(uuid.uuid4())
         self._add_to_task_queue()
-        res = self.conn.lpop(pkg["id"])
+        res = self.conn.lpop(pkg["key"])
         while not res:
             await asyncio.sleep(1)
-            res = self.conn.lpop(pkg["id"])
-        return res
+            res = self.conn.lpop(pkg["key"])
+        return json.loads(res)
