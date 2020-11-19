@@ -10,7 +10,7 @@ async def add_event(n):
 
 async def main(loop):
 
-    added_tasks = []
+    # added_tasks = []
     while True:
         # await asyncio.sleep(2)
         print("waiting for input")
@@ -19,8 +19,9 @@ async def main(loop):
             await asyncio.sleep(0.5)
             n = conn.lpop("queue")
         print('adding ' + str(n))
-        task = loop.create_task(add_event(n))
-        added_tasks.append(task)
+        loop.create_task(add_event(n))
+        # task = loop.create_task(add_event(n))
+        # added_tasks.append(task)
         await asyncio.sleep(0)
 
 conn = RedisPool().conn
