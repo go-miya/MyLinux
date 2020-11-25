@@ -25,6 +25,7 @@ class ScheduleSession(BaseScheduleSession):
     async def service_call(self, module_name: str, pkg: typing.Dict, timeout: int=10):
         try:
             res = await gen.with_timeout(time.time()+timeout, self.result_call(pkg, module_name))
+            print("1"*100)
             print(res)
             return json.loads(res)
         except TimeoutError as e:

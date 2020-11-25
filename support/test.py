@@ -14,6 +14,7 @@ class MainHandler(tornado.web.RequestHandler):
     async def get(self):
         try:
             res = await gen.with_timeout(time.time() + 6, func())
+            print(res)
             self.write("Hello, world" + res)
         except TimeoutError as e:
             print("timeout")
