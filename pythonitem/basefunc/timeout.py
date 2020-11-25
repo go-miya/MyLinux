@@ -35,4 +35,7 @@ def func():
     time.sleep(2)
     print("This func is executed")
 
-func()
+try:
+    func()
+except TimeOutError as e:
+    print(e)

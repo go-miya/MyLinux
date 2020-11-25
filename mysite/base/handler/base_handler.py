@@ -7,7 +7,6 @@ import logging
 class BasicHandler(RequestHandler):
     def __init__(self, application, reqeust, **kwargs):
         super(BasicHandler, self).__init__(application, reqeust, **kwargs)
-        print(application)
         self.session = ScheduleSession()
         self.service_call = self.session.service_call
         self.content_type = "json"

@@ -3,7 +3,6 @@
 
 import redis
 
-
 class RedisPoolBase:
 	redisPool = None
 	def __new__(cls, *args, **kwrgs):

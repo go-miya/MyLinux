@@ -22,6 +22,6 @@ class ScheduleSession(BaseScheduleSession):
         self._add_to_task_queue(json.dumps(pkg), module_name)
         res = self.conn.lpop(pkg["key"])
         while not res:
-            await asyncio.sleep(1)
+            await asyncio.sleep(0.1)
             res = self.conn.lpop(pkg["key"])
         return json.loads(res)
