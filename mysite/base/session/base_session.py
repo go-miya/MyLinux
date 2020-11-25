@@ -15,7 +15,7 @@ class BaseScheduleSession(metaclass=ABCMeta):
 class BaseProcessSession(metaclass=ABCMeta):
     def __init__(self):
         self.redis_conn = RedisPool().conn
-        self.loop = asyncio.get_event_loop()
+        self.loop = asyncio.get_running_loop()
 
 
     @abstractmethod

@@ -1,9 +1,10 @@
 from .base_session import BaseScheduleSession
 from ..redisfunc.rediscon import RedisPool
 import typing
-import uuid
 import asyncio
 import json
+import time
+from tornado import gen
 
 
 class ScheduleSession(BaseScheduleSession):
@@ -12,16 +13,19 @@ class ScheduleSession(BaseScheduleSession):
         self.conn = RedisPool().conn
         super(ScheduleSession, self).__init__()
 
-    def _add_to_task_queue(self, task: str, module_name: str):
+    async def result_call(self, pkg: typing.Dict, module_name: str):
         task_queue_name = module_name + ":queue"
-        self.conn.lpush(task_queue_name, task)
-
-    async def service_call(self, module_name: str, pkg: typing.Dict):
-        pkg["module_name"] = module_name
-        pkg["key"] = str(uuid.uuid4())
-        self._add_to_task_queue(json.dumps(pkg), module_name)
+        self.conn.lpush(task_queue_name, json.dumps(pkg))
         res = self.conn.lpop(pkg["key"])
         while not res:
             await asyncio.sleep(0.1)
             res = self.conn.lpop(pkg["key"])
-        return json.loads(res)
+        return res
+
+    async def service_call(self, module_name: str, pkg: typing.Dict, timeout: int=10):
+        try:
+            res = await gen.with_timeout(time.time()+timeout, self.result_call(pkg, module_name))
+            return json.loads(res)
+        except TimeoutError as e:
+            print(e)
+        return {}
