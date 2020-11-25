@@ -13,7 +13,8 @@ class HelloWorld(BasicHandler):
     async def get(self):
         pkg = self.pkg()
         try:
-            res = self.service_call(module_name="house", pkg=pkg)
+            res = await self.service_call(module_name="house", pkg=pkg)
+            print(res)
             self.response_return(*response_code.HTTP_OK, res)
         except Exception as e:
             print(e)
