@@ -18,7 +18,6 @@ def cpu_bound():
     return sum(i * i for i in range(10 ** 7))
 
 async def main():
-    loop = asyncio.get_running_loop()
 
     ## Options:
 
@@ -39,4 +38,7 @@ async def main():
             pool, cpu_bound)
         print('custom process pool', result)
 
-asyncio.run(main())
+
+loop = asyncio.get_running_loop()
+loop.run_until_complete(main())
+loop.close()
