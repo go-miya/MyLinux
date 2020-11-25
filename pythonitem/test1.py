@@ -2,9 +2,27 @@
 # -*- coding=utf8 -*-
 
 
-from redisfunc.rediscon import RedisPool
+import asyncio
+import concurrent.futures
+import time
 
-conn = RedisPool().conn
-while True:
-    n = input()
-    conn.lpush("queue", n)
+
+def add_event_syn(n):
+    print(f"ThreadPoolExecutor starting {n}")
+    time.sleep(1)
+    print(f"ThreadPoolExecutor ending {n}")
+
+
+
+
+async def main():
+    loop = asyncio.get_running_loop()
+    while True:
+        n = input()
+        with concurrent.futures.ProcessPoolExecutor() as pool:
+            result = await loop.run_in_executor(
+                pool, add_event_syn, n)
+            print('custom thread pool', result)
+
+
+asyncio.run(main())
