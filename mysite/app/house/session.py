@@ -22,7 +22,7 @@ class HouseSession(BaseProcessSession):
             await asyncio.sleep(0)
 
     async def process_helloworld(self, pkg: dict):
-        await asyncio.sleep(1)
+        await asyncio.sleep(2)
         res = {"result": "helloworld"}
         key = pkg.get("key")
         self.write_to_middle_part(key, res)

@@ -22,7 +22,7 @@ class ScheduleSession(BaseScheduleSession):
             res = self.conn.lpop(pkg["key"])
         return res
 
-    async def service_call(self, module_name: str, pkg: typing.Dict, timeout: int=10):
+    async def service_call(self, module_name: str, pkg: typing.Dict, timeout: int=1):
         try:
             res = await gen.with_timeout(time.time()+timeout, self.result_call(pkg, module_name))
             return json.loads(res)
