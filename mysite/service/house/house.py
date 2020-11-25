@@ -11,8 +11,11 @@ class HelloWorld(BasicHandler):
     async def get(self):
         pkg = self.pkg()
         try:
+            import time
+            start = time.time()
             res = await self.service_call(module_name="house", pkg=pkg)
             self.response_return(*response_code.HTTP_OK, res)
+            print("end at", time.time()-start)
         except Exception as e:
             print(e)
             self.err_return(*response_code.SERVER_ERROR)

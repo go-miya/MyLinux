@@ -15,7 +15,7 @@ class HouseSession(BaseProcessSession):
         while True:
             pkg = self.redis_conn.lpop(self.queue)
             while not pkg:
-                await asyncio.sleep(0.5)
+                await asyncio.sleep(0.1)
                 pkg = self.redis_conn.lpop(self.queue)
             pkg = json.loads(pkg)
             self.loop.create_task(task_list.get(pkg["action"])(pkg))
