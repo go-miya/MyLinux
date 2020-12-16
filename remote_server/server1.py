@@ -18,6 +18,7 @@ def connection_ready(sock, fd, events):
     while True:
         try:
             connection, address = sock.accept()
+            print("Connected by", address)
         except BlockingIOError:
             return
         connection.setblocking(0)
