@@ -28,10 +28,12 @@ import socket
 import tornado.ioloop
 from tornado.iostream import IOStream
 
+
 async def handle_connection(connection, address):
     stream = IOStream(connection)
     message = await stream.read_until_close()
     print("message from client:", message.decode().strip())
+
 
 def connection_ready(sock, fd, events):
     while True:
@@ -42,6 +44,7 @@ def connection_ready(sock, fd, events):
         connection.setblocking(0)
         io_loop = tornado.ioloop.IOLoop.current()
         io_loop.spawn_callback(handle_connection, connection, address)
+
 
 if __name__ == '__main__':
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
