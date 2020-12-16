@@ -11,5 +11,5 @@ class HandlerService:
         self._thread = threading.Thread(target=self.loop)
 
     def loop(self):
-        self.ioloop.loop_greenlet.switch()
+        pass
 

@@ -41,13 +41,13 @@ def main():
 
 def stop_handler(signum, frame):
     logging.info("Shutdown http service.")
-    for pid in pids.keys():
+    for pid in pids:
         os.kill(pid, signal.SIGTERM)
 
 
 def trigger_source_stat_handler(signum, frame):
     logging.info("Trigger source stat.")
-    for pid in pids.keys():
+    for pid in pids:
         logging.info('trigger pid %s' % pid)
         os.kill(pid, signal.SIGUSR1)
 
