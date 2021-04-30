@@ -1,5 +1,5 @@
-from app.house.session import HouseSession
+from app.helloworld.session import HelloWorldModule
 
 
 if __name__ == "__main__":
-    HouseSession().run()
+    HelloWorldModule().start()

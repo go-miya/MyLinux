@@ -7,8 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/mysite/service" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pythonitem/redisfunc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/mysite/app/house" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mysite/grpcclient/python" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.8 (py38)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (py39)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="demo" />
     <orderEntry type="module" module-name="myfileforpython" />

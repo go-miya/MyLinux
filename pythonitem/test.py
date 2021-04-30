@@ -2,14 +2,14 @@
 # -*- coding=utf8 -*-
 
 import time
-from basefunc import timeout 
+from basefunc.timeout import timeout
 from redisfunc import redislock
 
 @redislock.redis_lock
-@timeout.time_out(2)
+@timeout(2)
 def task1():
     print("task1 start")
-    time.sleep(2)
+    time.sleep(1)
     print("task1 finished")
 
 

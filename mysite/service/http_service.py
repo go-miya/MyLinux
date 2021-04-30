@@ -2,6 +2,7 @@ from tornado.web import Application
 import tornado.ioloop
 import tornado.httpserver
 from .house import house
+from .helloworld import helloworld_grpc
 # from base import base
 
 
@@ -9,7 +10,7 @@ class App(Application):
     def __init__(self):
         handlers = [
             (r'/xing/helloworld', house.HelloWorld),
-            (r'/xing/helloworld1', house.HelloWorld1),
+            (r'/xing/helloworld1', helloworld_grpc.HelloWorldHandler),
         ]
         super(App, self).__init__(handlers=handlers)
 

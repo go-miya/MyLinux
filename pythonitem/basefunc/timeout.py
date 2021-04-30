@@ -32,10 +32,10 @@ def timeout(interval: int):
 
 @timeout(2)
 def func():
-    time.sleep(2)
+    time.sleep(1)
     print("This func is executed")
 
-try:
-    func()
-except TimeOutError as e:
-    print(e)
+# try:
+#     func()
+# except TimeOutError as e:
+#     print(e)
