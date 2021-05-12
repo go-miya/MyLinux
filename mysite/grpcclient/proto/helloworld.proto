@@ -15,10 +15,21 @@ service Greeter {
 
 // The request message containing the user's name.
 message HelloRequest {
-  string name = 1;
+  enum Action{
+    HelloWorld = 0;
+  }
+  Action action = 1;
+  optional string name = 2;
 }
 
 // The response message containing the greetings
 message HelloReply {
-  string message = 1;
+  enum ErrorCode {
+    SUCCESS = 0;
+    Fail = 1;
+  }
+  optional ErrorCode status = 1;
+  optional string result = 2;
+  optional uint32 err_code = 3;
+  optional string err_msg = 4;
 }

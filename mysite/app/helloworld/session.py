@@ -1,17 +1,17 @@
-import asyncio
-
+import logging
 from grpcclient.python.helloworld_pb2_grpc import GreeterServicer, add_GreeterServicer_to_server
-from grpcclient.python.helloworld_pb2 import HelloReply
+from grpcclient.python import helloworld_pb2 as proto_pb
 import grpc
 from concurrent import futures
 import time
-from tornado.ioloop import IOLoop
+from base import response_code
 
 
 class Session(GreeterServicer):
 
-    def ServiceCall(self, request, context):
-        return self.on_srv_call_HelloWorldRequest(request, context)
+    def ServiceCall(self, pkg, context):
+        logging.debug('get---------%s---%s', pkg, context)
+        return self.on_srv_call_HelloWorldRequest(pkg, context)
 
 
 class HelloWorldSession(Session):
@@ -19,10 +19,13 @@ class HelloWorldSession(Session):
     def __init__(self):
         super(HelloWorldSession, self).__init__()
 
-    def on_srv_call_HelloWorldRequest(self, request, context=None):
-        # await IOLoop.current().run_in_executor(None, asyncio.sleep, 0.5)
+    def on_srv_call_HelloWorldRequest(self, pkg, context=None):
+        logging.info('srv call module on_srv_call_HelloWorldRequest. pkg: %s', pkg)
         time.sleep(0.2)
-        return HelloReply(message="Hello,%s" % request.name)
+        res = proto_pb.HelloReply()
+        res.err_code, res.err_msg = response_code.HTTP_OK
+        res.result = "Hello, %s" % pkg.name
+        return res
 
 
 class HelloWorldModule:

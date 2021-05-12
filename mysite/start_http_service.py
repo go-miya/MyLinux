@@ -1,5 +1,5 @@
 import logging
-from service import http_service
+from service import helloworld_http_service
 import os
 import sys
 import signal
@@ -7,9 +7,9 @@ import enviroment
 
 
 def run(port):
-    logging.basicConfig(level=logging.NOTSET)
+    logging.basicConfig(level=logging.DEBUG)
     logging.info("connect to rout, start service")
-    http_service.start_http(port)
+    helloworld_http_service.start_http(port)
 
 
 pids = []
