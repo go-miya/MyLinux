@@ -1,17 +1,11 @@
 import logging
-from grpcclient.python.helloworld_pb2_grpc import GreeterServicer, add_GreeterServicer_to_server
+from grpcclient.python.helloworld_pb2_grpc import add_GreeterServicer_to_server
 from grpcclient.python import helloworld_pb2 as proto_pb
 import grpc
 from concurrent import futures
 import time
 from base import response_code
-
-
-class Session(GreeterServicer):
-
-    def ServiceCall(self, pkg, context):
-        logging.debug('get---------%s---%s', pkg, context)
-        return self.on_srv_call_HelloWorldRequest(pkg, context)
+from base.session.base_session import Session
 
 
 class HelloWorldSession(Session):
@@ -30,10 +24,10 @@ class HelloWorldSession(Session):
 
 class HelloWorldModule:
 
-    def start(self):
+    def start(self, address):
         servicer = HelloWorldSession()
         server = grpc.server(futures.ThreadPoolExecutor(max_workers=20))
         add_GreeterServicer_to_server(servicer, server)
-        server.add_insecure_port('[::]:50051')
+        server.add_insecure_port(address)  # '[::]:50051'
         server.start()
         server.wait_for_termination()

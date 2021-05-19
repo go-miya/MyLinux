@@ -3,6 +3,7 @@ import logging
 from tornado.web import Application
 import grpc
 from enviroment import CONFIG
+from collections import deque
 
 
 class BaseApplication(Application):
@@ -16,9 +17,9 @@ class BaseApplication(Application):
 
     def register_grpb_stub_with_channel(self, name: str, stub: callable):
         if not hasattr(self, "_grpc_channel"):
-            self._grpc_channel = create_channel()
+            self._grpc_channels = create_channel()
             self._grpc_stubs = {}
-        self._grpc_stubs[name] = create_grpc_stub(stub, self._grpc_channel)
+        self._grpc_stubs[name] = create_grpc_stub(stub, self._grpc_channels)
 
     def start(self):
         logging.info("Web service start")
@@ -27,9 +28,12 @@ class BaseApplication(Application):
 
 
 def create_channel():
-    channel = grpc.insecure_channel(CONFIG.get("download_stream_port"))
-    return channel
+    channels = [grpc.insecure_channel(address) for address in CONFIG.get("download_stream_port")]
+    return channels
 
 
-def create_grpc_stub(stub: callable, channel: grpc.insecure_channel):
-    return stub(channel)
+def create_grpc_stub(stub: callable, channels: [grpc.insecure_channel]):
+    grpc_stub_deque = deque()
+    for channel in channels:
+        grpc_stub_deque.append(stub(channel))
+    return grpc_stub_deque

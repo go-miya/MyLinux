@@ -1,9 +1,8 @@
+import collections
 import typing
 from abc import ABC
-
-import grpc
 from tornado.web import RequestHandler
-from grpcclient.python import helloworld_pb2_grpc, helloworld_pb2 as proto_pb
+from grpcclient.python import helloworld_pb2 as proto_pb
 from base import response_code
 from tornado.ioloop import IOLoop
 import logging
@@ -13,20 +12,22 @@ class BaseHandler(RequestHandler, ABC):
 
     def __init__(self, application, request, **kwargs):
         super(BaseHandler, self).__init__(application, request, **kwargs)
-        for name, grpc_stub in application._grpc_stubs.items():
-            setattr(self, name, grpc_stub)
+        for name, grpc_stub_lists in application._grpc_stubs.items():
+            setattr(self, name, grpc_stub_lists)
 
     def get_grpc_stub(self, name: str):
-        return getattr(self, name.lower())
+        grpc_stub_deque: collections.deque = getattr(self, name.lower())
+        logging.info("called grpc_stub_lists: %s " % grpc_stub_deque)
+        grpc_stub = grpc_stub_deque.pop()
+        grpc_stub_deque.appendleft(grpc_stub)
+        return grpc_stub
 
     async def _service_call(self, service_name, package=None, timeout=None, **kwargs):
         logging.info("{}:{}".format(service_name, package.action))
         try:
-            # channel = grpc.insecure_channel('localhost:50051')
-            # stub = helloworld_pb2_grpc.GreeterStub(channel)
             stub = self.get_grpc_stub(service_name)
+            logging.info("call stub: %s" % id(stub))
             response = await IOLoop.current().run_in_executor(None, stub.ServiceCall, package)
-            # channel.close()
             return response
         except Exception as e:
             logging.error(e, exc_info=True)
@@ -42,8 +43,6 @@ class BasicHandler(BaseHandler, ABC):
 
     def __init__(self, application, reqeust, **kwargs):
         super(BasicHandler, self).__init__(application, reqeust, **kwargs)
-        # self.session = ScheduleSession()
-        # self.service_call = self.session.service_call
         self.content_type = "json"
 
     async def get(self):
