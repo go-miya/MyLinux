@@ -8,6 +8,16 @@ from tornado.ioloop import IOLoop
 import logging
 
 
+def record(func):
+    async def inner(*args, **kwargs):
+        logging.info("--------------service {} is call, service type is {}-------------"
+                     .format(args[1], kwargs.get("package").action))
+        res = await func(*args, **kwargs)
+        logging.info("----------------------service end------------------------------")
+        return res
+    return inner
+
+
 class BaseHandler(RequestHandler, ABC):
 
     def __init__(self, application, request, **kwargs):
@@ -17,11 +27,12 @@ class BaseHandler(RequestHandler, ABC):
 
     def get_grpc_stub(self, name: str):
         grpc_stub_deque: collections.deque = getattr(self, name.lower())
-        logging.info("called grpc_stub_lists: %s " % grpc_stub_deque)
         grpc_stub = grpc_stub_deque.pop()
         grpc_stub_deque.appendleft(grpc_stub)
+        # print(help(grpc_stub.ServiceCall.future))
         return grpc_stub
 
+    @record
     async def _service_call(self, service_name, package=None, timeout=None, **kwargs):
         logging.info("{}:{}".format(service_name, package.action))
         try:
@@ -54,7 +65,7 @@ class BasicHandler(BaseHandler, ABC):
             self.response_return(400, "pkg_error", {})
             return
         try:
-            res = await self._service_call(self.service_name, pkg, timeout=1)
+            res = await self._service_call(self.service_name, package=pkg, timeout=1)
             self.response_return(*response_code.HTTP_OK, res.result)
         except Exception as ex:
             logging.error('call service error: {}'.format(repr(ex)), exc_info=True)
@@ -79,4 +90,6 @@ class BasicHandler(BaseHandler, ABC):
         self.set_status(code)
         self.set_header("Content-Type", "application/json")
         self.write(ret)
+
+
 

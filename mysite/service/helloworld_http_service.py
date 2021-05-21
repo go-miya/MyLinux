@@ -3,7 +3,6 @@ import tornado.ioloop
 import tornado.httpserver
 from .helloworld import helloworld_grpc
 from grpcclient.python import helloworld_pb2_grpc as proto_pb_grpc
-# from base import base
 
 
 class App(BaseApplication):
@@ -15,13 +14,11 @@ class App(BaseApplication):
 
 
 def start_http(port):
-    # base.install()
-    io_loop = tornado.ioloop.IOLoop.instance()
     application = App()
     application.register("helloworld", proto_pb_grpc.GreeterStub)
     application.start()
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(port)
-    io_loop.start()
+    tornado.ioloop.IOLoop.instance().start()
 
 

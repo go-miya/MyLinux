@@ -6,6 +6,7 @@ from concurrent import futures
 import time
 from base import response_code
 from base.session.base_session import Session
+from .dispatcher import tasks
 
 
 class HelloWorldSession(Session):
@@ -13,13 +14,21 @@ class HelloWorldSession(Session):
     def __init__(self):
         super(HelloWorldSession, self).__init__()
 
-    def on_srv_call_HelloWorldRequest(self, pkg, context=None):
-        logging.info('srv call module on_srv_call_HelloWorldRequest. pkg: %s', pkg)
-        time.sleep(0.2)
+    def on_srv_call_request(self, pkg, context=None):
+        logging.info('srv call module on_srv_call_request: %s', pkg.action)
+        time1 = time.time()
         res = proto_pb.HelloReply()
-        res.err_code, res.err_msg = response_code.HTTP_OK
-        res.result = "Hello, %s" % pkg.name
-        return res
+        try:
+            result = tasks.get(pkg.action)(pkg)
+            res.err_code, res.err_msg = response_code.HTTP_OK
+            res.result = result
+        except Exception as e:
+            res.err_code, res.err_msg, _ = response_code.SERVER_ERROR
+            res.result = ""
+        finally:
+            logging.info('%s on_srv_call_request spend_time:%s',
+                         pkg.action, time.time() - time1)
+            return res
 
 
 class HelloWorldModule:

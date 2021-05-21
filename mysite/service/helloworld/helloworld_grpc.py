@@ -7,12 +7,10 @@ class HelloWorldHandler(BasicHandler):
     service_name = "HelloWorld"
 
     async def get(self):
-        logging.info("handler ip is %s:" % id(self))
         await super(HelloWorldHandler, self).get()
 
     def pkg_input(self, pkg):
         pkg.action = pkg.HelloWorld
         pkg.name = "xing"
-
 
 
