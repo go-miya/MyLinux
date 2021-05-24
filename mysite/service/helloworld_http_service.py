@@ -8,7 +8,7 @@ from grpcclient.python import helloworld_pb2_grpc as proto_pb_grpc
 class App(BaseApplication):
     def __init__(self):
         handlers = [
-            (r'/xing/helloworld1', helloworld_grpc.HelloWorldHandler),
+            (r'/xing/helloworld2', helloworld_grpc.HelloWorldHandler),
         ]
         super(App, self).__init__(handlers=handlers)
 
