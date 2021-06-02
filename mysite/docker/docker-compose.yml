@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  http_v3_mysite:
+#    hostname: http_v3_mysite
+    image: "mysite_http:test"
+    ports:
+      - "8888:8888"
+      - "8890:8890"
+      - "8892:8892"
+    volumes:
+      - "${WORKSPACE}/:/mysite"
+
+  downstream_mysite:
+#    hostname: downstream_mysite
+    image: "mysite_downstream:test"
+    ports:
+      - "50051:50051"
+      - "50052:50052"
+      - "50053:50053"
+    volumes:
+      - "${WORKSPACE}/:/mysite"
