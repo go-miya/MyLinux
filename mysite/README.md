@@ -1,7 +1,6 @@
 # Mysite
 
 This file mysite contains all code about http service and downstream service.
-
 Both the http service and downstream service run in docker
 
 We need execute the Dockerfile in
