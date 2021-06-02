@@ -1,16 +1,11 @@
 from app.helloworld.session import HelloWorldModule
-import logging
-# if __name__ == "__main__":
-#     logging.basicConfig(level=logging.DEBUG)
-#     logging.info("Service in Downstream")
-#     HelloWorldModule().start('localhost:50051')
 
 import logging
-from service import helloworld_http_service
 import os
 import sys
 import signal
 import enviroment
+import socket
 
 pids = []
 
@@ -22,6 +17,7 @@ def run(address):
 
 
 def main():
+    # logging.info(socket.gethostbyname(socket.gethostname()))
     enviroment.config_env("http_service")
     for address in enviroment.CONFIG["download_stream_port"]:
         pid = os.fork()

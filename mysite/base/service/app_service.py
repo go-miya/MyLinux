@@ -56,7 +56,7 @@ def create_channel():
     create grpc channel
     :return:
     """
-    channels = [grpc.insecure_channel(address) for address in CONFIG.get("download_stream_port")]
+    channels = [grpc.insecure_channel(address) for address in CONFIG.get("up_to_download_stream_port")]
     return channels
 
 
