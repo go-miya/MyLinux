@@ -4,7 +4,6 @@ import os
 import sys
 import signal
 import enviroment
-import socket
 
 def run(port):
     logging.basicConfig(level=logging.DEBUG)
@@ -14,7 +13,6 @@ def run(port):
 
 pids = []
 def main():
-    # logging.info(socket.gethostbyname(socket.gethostname()))
     enviroment.config_env("http_service")
     for i in range(3):
         pid = os.fork()

@@ -2,7 +2,7 @@ FROM ubuntu
 ENV PYTHONPATH=/mysite:
 
 WORKDIR /mysite
-COPY .. .
+COPY ../.. .
 
 RUN apt-get update
 RUN apt install -y python3-pip

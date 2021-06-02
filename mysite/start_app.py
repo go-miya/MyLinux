@@ -5,7 +5,6 @@ import os
 import sys
 import signal
 import enviroment
-import socket
 
 pids = []
 
@@ -17,7 +16,6 @@ def run(address):
 
 
 def main():
-    # logging.info(socket.gethostbyname(socket.gethostname()))
     enviroment.config_env("http_service")
     for address in enviroment.CONFIG["download_stream_port"]:
         pid = os.fork()
