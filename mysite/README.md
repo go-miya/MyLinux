@@ -10,7 +10,7 @@ We need execute the Dockerfile in
 `docker build -t mysite_base:v1 .`
 
 And then execute the Dockerfile respectively in 
-<a href="docker/dockerhttp">docker/dockerhttp/a> and
+<a href="docker/dockerhttp">docker/dockerhttp</a> and
 <a href="docker/dockerdownstream">docker/dockerdownstream</a>
 by:
 
