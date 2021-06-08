@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+
+  codis:
+    image: "codis:v7"
+    ports:
+      - "9090:9090"
+    volumes:
+      - "${WORKSPACE}/:/mysite"
