@@ -1,0 +1,10 @@
+certifi==2020.12.5
+grpcio==1.37.0
+grpcio-tools==1.37.0
+opentracing==2.4.0
+protobuf==3.15.8
+six==1.15.0
+threadloop==1.0.2
+thrift==0.13.0
+tornado==6.1
+redis-py-cluster==2.1.3
