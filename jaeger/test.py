@@ -1,31 +1,30 @@
-import logging
+import sys
 import time
-from jaeger_client import Config
+from lib.tracing import init_tracer
+from opentracing import tags
 
-if __name__ == "__main__":
-    log_level = logging.DEBUG
-    logging.getLogger('').handlers = []
-    logging.basicConfig(format='%(asctime)s %(message)s', level=log_level)
 
-    config = Config(
-        config={ # usually read from some yaml config
-            'sampler': {
-                'type': 'const',
-                'param': 1,
-            },
-            'logging': True,
-        },
-        service_name='your-app-name',
-        validate=True,
-    )
-    # this call also sets opentracing.tracer
-    tracer = config.initialize_tracer()
+def say_hello(hello_to):
+    with tracer.start_span('say-hello') as span:
+        span.set_tag('hello-to', hello_to)
 
-    with tracer.start_span('TestSpan') as span:
-        span.log_kv({'event': 'test message', 'life': 42})
+        hello_str = 'Hello, %s!' % hello_to
+        time.sleep(1)
+        span.log_kv({'event': 'string-format', 'value': hello_str})
 
-        with tracer.start_span('ChildSpan', child_of=span) as child_span:
-            child_span.log_kv({'event': 'down below'})
+        print(hello_str)
+        time.sleep(2)
+        span.log_kv({'event': 'println'})
 
-    time.sleep(2)   # yield to IOLoop to flush the spans - https://github.com/jaegertracing/jaeger-client-python/issues/50
-    tracer.close()  # flush any buffered spans
+
+assert len(sys.argv) == 2
+
+tracer = init_tracer('hello-world')
+
+hello_to = sys.argv[1]
+say_hello(hello_to)
+
+# yield to IOLoop to flush the spans
+time.sleep(2)
+tracer.close()
+

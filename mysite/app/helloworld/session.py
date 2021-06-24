@@ -9,7 +9,7 @@ from base.session.base_session import Session
 from grpcclient.python import helloworld_pb2 as proto_pb
 from grpcclient.python.helloworld_pb2_grpc import add_GreeterServicer_to_server
 from .dispatcher import tasks
-
+from sdk import tracing
 
 class HelloWorldSession(Session):
 
@@ -25,6 +25,7 @@ class HelloWorldSession(Session):
             res.err_code, res.err_msg = response_code.HTTP_OK
             res.result = result
         except Exception as e:
+            logging.error('req:%s. on_srv_call_MatrixCrazyVegasRequest module exception!', pkg, exc_info=True)
             res.err_code, res.err_msg, _ = response_code.SERVER_ERROR
             res.result = ""
         finally:
@@ -36,6 +37,9 @@ class HelloWorldSession(Session):
 class HelloWorldModule:
 
     def start(self, address):
+        # start tracing
+        # tracing.init_tracer("helloworld_downstream")
+
         servicer = HelloWorldSession()
         server = grpc.server(futures.ThreadPoolExecutor(max_workers=20))
         add_GreeterServicer_to_server(servicer, server)

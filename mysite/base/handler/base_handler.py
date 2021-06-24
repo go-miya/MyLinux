@@ -6,6 +6,8 @@ from grpcclient.python import helloworld_pb2 as proto_pb
 from base import response_code
 from tornado.ioloop import IOLoop
 import logging
+from sdk import tracing
+from opentracing import tags
 
 
 def record(func):
@@ -91,5 +93,16 @@ class BasicHandler(BaseHandler, ABC):
         self.set_header("Content-Type", "application/json")
         self.write(ret)
 
-
-
+    async def _execute(
+        self, transforms, *args: bytes, **kwargs: bytes
+    ) -> None:
+        span = tracing.tracer.start_span(
+            self.request.path,
+            tags={
+                tags.HTTP_URL: self.request.uri,
+                tags.HTTP_METHOD: self.request.method,
+            },
+        )
+        await super(BasicHandler, self)._execute(transforms, *args, **kwargs)
+        span.set_tag(tags.HTTP_STATUS_CODE, self.get_status())
+        span.finish()

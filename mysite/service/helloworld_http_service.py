@@ -3,7 +3,7 @@ import tornado.ioloop
 import tornado.httpserver
 from .helloworld import helloworld_grpc
 from grpcclient.python import helloworld_pb2_grpc as proto_pb_grpc
-
+from sdk import tracing
 
 class App(BaseApplication):
     def __init__(self):
@@ -14,6 +14,10 @@ class App(BaseApplication):
 
 
 def start_http(port):
+    # start tracing
+    tracing.init_tracer("helloworld_upstream")
+
+    # start web service loop
     application = App()
     application.register("helloworld", proto_pb_grpc.GreeterStub)
     application.start()

@@ -4,7 +4,7 @@ services:
 
   http_v3_mysite:
 #    hostname: http_v3_mysite
-    image: "mysite_http:test"
+    image: "mysite_http:v1.1"
     ports:
       - "8888:8888"
       - "8890:8890"
@@ -14,7 +14,7 @@ services:
 
   downstream_mysite:
 #    hostname: downstream_mysite
-    image: "mysite_downstream:test"
+    image: "mysite_downstream:v1.1"
     ports:
       - "50051:50051"
       - "50052:50052"
