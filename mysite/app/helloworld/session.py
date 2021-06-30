@@ -38,7 +38,7 @@ class HelloWorldModule:
 
     def start(self, address):
         # start tracing
-        # tracing.init_tracer("helloworld_downstream")
+        tracing.init_tracer("helloworld_downstream")
 
         servicer = HelloWorldSession()
         server = grpc.server(futures.ThreadPoolExecutor(max_workers=20))
