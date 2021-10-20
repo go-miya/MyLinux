@@ -5,6 +5,7 @@ import sys
 import signal
 import enviroment
 
+
 def run(port):
     logging.basicConfig(level=logging.DEBUG)
     logging.info("connect to rout, start service")
@@ -12,6 +13,8 @@ def run(port):
 
 
 pids = []
+
+
 def main():
     enviroment.config_env("http_service")
     for i in range(3):

@@ -25,17 +25,17 @@ def timeout(interval: int):
                 return res
             except TimeOutError as e:
                 timeOutCallback(e)
-                raise TimeOutError("timeout")
+                # raise TimeOutError("timeout")
         return wrapper
     return decorator
 
 
 @timeout(2)
 def func():
-    time.sleep(1)
+    time.sleep(3)
     print("This func is executed")
 
-# try:
-#     func()
-# except TimeOutError as e:
-#     print(e)
+try:
+    func()
+except TimeOutError as e:
+    print(e)

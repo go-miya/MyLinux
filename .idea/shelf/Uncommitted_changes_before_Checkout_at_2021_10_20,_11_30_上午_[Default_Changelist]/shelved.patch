@@ -1,0 +1,119 @@
+Index: mysite/README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Mysite\n\nThis file mysite contains all code about http service and downstream service.\nBoth the http service and downstream service run in docker\n\nWe need execute the Dockerfile in\n <a href=\"docker/dockerbase\">docker/dockerbase</a> by:\n\n`docker build -t mysite_base:v1 .`\n\nAnd then execute the Dockerfile respectively in \n<a href=\"docker/dockerhttp\">docker/dockerhttp</a> and\n<a href=\"docker/dockerdownstream\">docker/dockerdownstream</a>\nby:\n\n`docker build -t mysite_http:test .`\n\n`docker build -t mysite_downstream:test .`\n\nLastly, we just need to run the command below in the directory\n<a href=\"docker\">docker</a> in terminal.\n\n`WORKSPACE=your_dir/mysite docker-compose -f your_dir/docker-compose.yml up`\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mysite/README.md b/mysite/README.md
+--- a/mysite/README.md	(revision 195a49a8396f70632047363678929b416989b6d5)
++++ b/mysite/README.md	(date 1625197837900)
+@@ -1,5 +1,5 @@
+ # Mysite
+-
++## 1.start service
+ This file mysite contains all code about http service and downstream service.
+ Both the http service and downstream service run in docker
+ 
+@@ -22,3 +22,4 @@
+ 
+ `WORKSPACE=your_dir/mysite docker-compose -f your_dir/docker-compose.yml up`
+ 
++## 2.
+\ No newline at end of file
+Index: pythonitem/redisfunc/redislock.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#!/usr/bin/python3\n# -*- coding=utf8 -*-\n\nimport random\nfrom redisfunc.rediscon import RedisPool\n\n\ndef redis_lock(func):\n    def wrapper(*args, **kwargs):\n        tag = random.randint(1, 1000)  # define a random num\n        conn = RedisPool().conn\n        while True:\n            if conn.set(\"conn.lock\", str(tag), nx=True, ex=5):\n                print(\"lock successfully\")\n                func(*args, **kwargs)\n                if conn.get(\"conn.lock\") == str(tag):\n                    conn.delete(\"conn.lock\")\n                break\n    return wrapper\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pythonitem/redisfunc/redislock.py b/pythonitem/redisfunc/redislock.py
+--- a/pythonitem/redisfunc/redislock.py	(revision 195a49a8396f70632047363678929b416989b6d5)
++++ b/pythonitem/redisfunc/redislock.py	(date 1626872100350)
+@@ -19,4 +19,24 @@
+     return wrapper
+ 
+ 
++class RedisLock:
++    def __init__(self, key, expired_time=None):
++        self.key = key
++        self.expired_time = expired_time
++        self.client = RedisPool().conn
++
++    def __enter__(self):
++        if not self.client.set(self.key, 1, ex=self.expired_time):
++            # 并发操作下直接抛出异常
++            # raise_biz_exc(ExcCode.OP_CONCURRENT_EXCEPTION, u'操作过于频繁')
++            raise Exception("hhh")
++
++    def __exit__(self, exc_type, exc_value, tb):
++        self.client.delete(self.key)
++        print("hhhh")
++
++
++if __name__ == "__main__":
++    with RedisLock("xing:zhao"):
++        print(1 / 0)
+ 
+Index: mysite/start_http_service.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import logging\nfrom service import helloworld_http_service\nimport os\nimport sys\nimport signal\nimport enviroment\n\ndef run(port):\n    logging.basicConfig(level=logging.DEBUG)\n    logging.info(\"connect to rout, start service\")\n    helloworld_http_service.start_http(port)\n\n\npids = []\ndef main():\n    enviroment.config_env(\"http_service\")\n    for i in range(3):\n        pid = os.fork()\n        if pid == 0:\n            run(enviroment.CONFIG[\"start_hostids\"][i])\n            return\n        else:\n            pids.append(pid)\n    print(pids)\n    signal.signal(signal.SIGTERM, stop_handler)\n    # signal.signal(signal.SIGINT, stop_handler)\n    signal.signal(signal.SIGUSR1, trigger_source_stat_handler)\n\n    while pids:\n        try:\n            pid, ret = os.wait()\n            logging.info('the ret: %d', ret)\n            logging.info('the sys.argv %s', sys.argv)\n            hid = pids[pid]\n            del pids[pid]\n            if ret > 0:\n                logging.error(\"http process %d died accidentally!\", hid)\n        except:\n            pass\n\ndef stop_handler(signum, frame):\n    logging.info(\"Shutdown http service.\")\n    for pid in pids:\n        os.kill(pid, signal.SIGTERM)\n\n\ndef trigger_source_stat_handler(signum, frame):\n    logging.info(\"Trigger source stat.\")\n    for pid in pids:\n        logging.info('trigger pid %s' % pid)\n        os.kill(pid, signal.SIGUSR1)\n\n\nif __name__ == \"__main__\":\n    main()\n   # http_service.start_http(9999)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mysite/start_http_service.py b/mysite/start_http_service.py
+--- a/mysite/start_http_service.py	(revision 195a49a8396f70632047363678929b416989b6d5)
++++ b/mysite/start_http_service.py	(date 1625293281198)
+@@ -5,6 +5,7 @@
+ import signal
+ import enviroment
+ 
++
+ def run(port):
+     logging.basicConfig(level=logging.DEBUG)
+     logging.info("connect to rout, start service")
+@@ -12,6 +13,8 @@
+ 
+ 
+ pids = []
++
++
+ def main():
+     enviroment.config_env("http_service")
+     for i in range(3):
+Index: pythonitem/basefunc/timeout.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import time\nimport signal\n\n\nclass TimeOutError(Exception):\n    def __init__(self, msg: str):\n        self.msg = msg\n\n\ndef timeOutCallback(error):\n    print(error.msg)\n\n\ndef timeout(interval: int):\n    def decorator(func):\n        def handler(signum, frame):\n            raise TimeOutError(\"Run func:%s timeout\" % func.__name__)\n\n        def wrapper(*args, **kwargs):\n            try:\n                signal.signal(signal.SIGALRM, handler)\n                signal.alarm(interval)\n                res = func(*args, **kwargs)\n                signal.alarm(0)\n                return res\n            except TimeOutError as e:\n                timeOutCallback(e)\n                raise TimeOutError(\"timeout\")\n        return wrapper\n    return decorator\n\n\n@timeout(2)\ndef func():\n    time.sleep(1)\n    print(\"This func is executed\")\n\n# try:\n#     func()\n# except TimeOutError as e:\n#     print(e)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pythonitem/basefunc/timeout.py b/pythonitem/basefunc/timeout.py
+--- a/pythonitem/basefunc/timeout.py	(revision 195a49a8396f70632047363678929b416989b6d5)
++++ b/pythonitem/basefunc/timeout.py	(date 1626158794066)
+@@ -25,17 +25,17 @@
+                 return res
+             except TimeOutError as e:
+                 timeOutCallback(e)
+-                raise TimeOutError("timeout")
++                # raise TimeOutError("timeout")
+         return wrapper
+     return decorator
+ 
+ 
+ @timeout(2)
+ def func():
+-    time.sleep(1)
++    time.sleep(3)
+     print("This func is executed")
+ 
+-# try:
+-#     func()
+-# except TimeOutError as e:
+-#     print(e)
++try:
++    func()
++except TimeOutError as e:
++    print(e)
